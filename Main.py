@@ -15,7 +15,7 @@ def remove_duplicate_images(directory):
     """移除重复的图片文件"""
     md5_dict = {}
     duplicates = 0
-    deleted_files = []  # 新增列表来存储被删除的文件名
+    deleted_files = []
     
     # 遍历目录中的所有文件
     for filename in os.listdir(directory):
@@ -30,12 +30,12 @@ def remove_duplicate_images(directory):
                 print(f"删除重复文件: {filename}")
                 os.remove(file_path)
                 duplicates += 1
-                deleted_files.append(filename)  # 将被删除的文件名添加到列表中
+                deleted_files.append(filename)
             else:
                 # 如果不存在，将MD5值添加到字典中
                 md5_dict[file_md5] = filename
 
-    return duplicates, deleted_files  # 返回删除的文件数量和被删除的文件名列表
+    return duplicates, deleted_files
 
 def browse_folder():
     """浏览文件夹并选择"""
@@ -52,7 +52,7 @@ def start_process():
         return
     duplicates_removed, deleted_files = remove_duplicate_images(directory_path)
     if duplicates_removed > 0:
-        deleted_files_message = "\n".join(deleted_files)  # 将文件名列表转换为字符串
+        deleted_files_message = "\n".join(deleted_files)
         messagebox.showinfo("完成", f"删除了 {duplicates_removed} 个重复文件:\n{deleted_files_message}")
     else:
         messagebox.showinfo("完成", "没有找到重复的文件")
