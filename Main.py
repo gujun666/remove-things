@@ -19,7 +19,7 @@ def remove_duplicate_images(directory):
     
     # 遍历目录中的所有文件
     for filename in os.listdir(directory):
-        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff', '.tif', '.psd', '.raw', '.rw2', '.webp', '.svg', '.ico', '.mp4', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.webm', '.vob', '.mpg', '.mpeg', '.3gp', '.3g2', '.m4v', '.rm', '.rmvb', '.asf', '.divx', '.xvid', '.ogv')):
             file_path = os.path.join(directory, filename)
             # 计算文件的MD5值
             file_md5 = get_md5(file_path)
